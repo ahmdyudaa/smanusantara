@@ -60,40 +60,40 @@
                     </div>
                 </div>
                 <nav class="hidden md:flex space-x-8">
-                    <a href="#" class="flex items-center space-x-2 text-primary font-medium">
+                    <a href="{{ route('home') }}" class="flex items-center space-x-2 {{ request()->routeIs('home') ? 'text-primary' : 'text-gray-700' }} hover:text-primary font-medium">
                         <div class="w-5 h-5 flex items-center justify-center"><i class="ri-home-line"></i></div>
                         <span>Beranda</span>
                     </a>
                     <div class="relative group">
-                        <a href="#" class="flex items-center space-x-2 text-gray-700 hover:text-primary">
+                        <a href="#" class="flex items-center space-x-2 {{ request()->routeIs('pages.show*') ? 'text-primary' : 'text-gray-700' }} hover:text-primary">
                             <div class="w-5 h-5 flex items-center justify-center"><i class="ri-user-line"></i></div>
                             <span>Profil</span>
                             <div class="w-5 h-5 flex items-center justify-center"><i class="ri-arrow-down-s-line transition-transform group-hover:rotate-180"></i></div>
                         </a>
                         <div class="absolute left-0 top-full mt-2 w-56 bg-white rounded-xl shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                            <a href="#" class="flex items-center space-x-3 px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary">
+                            <a href="{{ route('pages.show', 'visi_misi') }}" class="flex items-center space-x-3 px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary">
                                 <div class="w-5 h-5 flex items-center justify-center"><i class="ri-eye-line"></i></div>
                                 <span>Visi & Misi</span>
                             </a>
-                            <a href="#" class="flex items-center space-x-3 px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary">
+                            <a href="{{ route('pages.show', 'sejarah_sekolah') }}" class="flex items-center space-x-3 px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary">
                                 <div class="w-5 h-5 flex items-center justify-center"><i class="ri-history-line"></i></div>
                                 <span>Sejarah Sekolah</span>
                             </a>
-                            <a href="#" class="flex items-center space-x-3 px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary">
+                            <a href="{{ route('pages.show', 'struktur_organisasi') }}" class="flex items-center space-x-3 px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary">
                                 <div class="w-5 h-5 flex items-center justify-center"><i class="ri-team-line"></i></div>
                                 <span>Struktur Organisasi</span>
                             </a>
                         </div>
                     </div>
-                    <a href="#" class="flex items-center space-x-2 text-gray-700 hover:text-primary">
+                    <a href="{{ route('pages.akademik') }}" class="flex items-center space-x-2 {{ request()->routeIs('pages.akademik') ? 'text-primary' : 'text-gray-700' }} hover:text-primary">
                         <div class="w-5 h-5 flex items-center justify-center"><i class="ri-book-line"></i></div>
                         <span>Akademik</span>
                     </a>
-                    <a href="#" class="flex items-center space-x-2 text-gray-700 hover:text-primary">
+                    <a href="{{ route('news.index') }}" class="flex items-center space-x-2 {{ request()->routeIs('news.*') ? 'text-primary' : 'text-gray-700' }} hover:text-primary">
                         <div class="w-5 h-5 flex items-center justify-center"><i class="ri-news-line"></i></div>
                         <span>Berita</span>
                     </a>
-                    <a href="#" class="flex items-center space-x-2 text-gray-700 hover:text-primary">
+                    <a href="{{ route('pages.kontak') }}" class="flex items-center space-x-2 {{ request()->routeIs('pages.kontak') ? 'text-primary' : 'text-gray-700' }} hover:text-primary">
                         <div class="w-5 h-5 flex items-center justify-center"><i class="ri-phone-line"></i></div>
                         <span>Kontak</span>
                     </a>
@@ -106,11 +106,13 @@
         <!-- Mobile Menu -->
         <div class="md:hidden hidden bg-white border-t border-gray-200" id="mobile-menu">
             <div class="px-4 py-2 space-y-2">
-                <a href="#" class="block py-2 text-primary font-medium">Beranda</a>
-                <a href="#" class="block py-2 text-gray-700">Profil</a>
-                <a href="#" class="block py-2 text-gray-700">Akademik</a>
-                <a href="#" class="block py-2 text-gray-700">Berita</a>
-                <a href="#" class="block py-2 text-gray-700">Kontak</a>
+                <a href="{{ route('home') }}" class="block py-2 {{ request()->routeIs('home') ? 'text-primary' : 'text-gray-700' }} font-medium">Beranda</a>
+                <a href="{{ route('pages.show', 'visi_misi') }}" class="block py-2 text-gray-700">Visi & Misi</a>
+                <a href="{{ route('pages.show', 'sejarah_sekolah') }}" class="block py-2 text-gray-700">Sejarah Sekolah</a>
+                <a href="{{ route('pages.show', 'struktur_organisasi') }}" class="block py-2 text-gray-700">Struktur Organisasi</a>
+                <a href="{{ route('pages.akademik') }}" class="block py-2 {{ request()->routeIs('pages.akademik') ? 'text-primary' : 'text-gray-700' }}">Akademik</a>
+                <a href="{{ route('news.index') }}" class="block py-2 {{ request()->routeIs('news.*') ? 'text-primary' : 'text-gray-700' }}">Berita</a>
+                <a href="{{ route('pages.kontak') }}" class="block py-2 {{ request()->routeIs('pages.kontak') ? 'text-primary' : 'text-gray-700' }}">Kontak</a>
             </div>
         </div>
     </header>
