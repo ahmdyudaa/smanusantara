@@ -58,10 +58,10 @@ class AnnouncementResource extends Resource
                     ->badge(),
                 Tables\Columns\TextColumn::make('priority')
                     ->badge()
-                    ->color(fn (string $state): string => match ($state) {
-                        'urgent' => 'danger',
-                        'penting' => 'warning',
-                        'info' => 'info',
+                    ->color(fn (AnnouncementPriority $state): string => match ($state) {
+                        AnnouncementPriority::URGENT => 'danger',
+                        AnnouncementPriority::PENTING => 'warning',
+                        AnnouncementPriority::INFO => 'info',
                     }),
                 Tables\Columns\TextColumn::make('published_at')
                     ->dateTime()
