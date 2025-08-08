@@ -15,7 +15,7 @@ class PageController extends Controller
         $page = PageContent::firstOrCreate(
             ['page_name' => $page_name],
             [
-                'title' => 'Konten untuk ' . str_replace('_', ' ', Str::title($page_name))),
+                'title' => 'Konten untuk ' . str_replace('_', ' ', Str::title($page_name)),
                 'content' => '<h1>' . str_replace('_', ' ', Str::title($page_name)) . '</h1><p>Konten untuk halaman ini belum tersedia. Silakan edit melalui panel admin.</p>',
                 'updated_by' => $user ? $user->id : 1, // Default to user 1 if no user exists
             ]
